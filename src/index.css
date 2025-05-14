@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+:root {
+  --font-sans: "Nanum Gothic", sans-serif;
+}
+
+.chanho-toast-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.chanho-toast-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+.chanho-toast-description {
+  font-size: 14px;
+  color: #666;
+}
+
+@keyframes move {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+}
+
+@keyframes moveSpark {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(30px);
+  }
+}
