@@ -28,22 +28,20 @@ const HeaderMobileAndTablet = () => {
 
   return (
     <header className="fixed top-0 w-full h-[56px] font-nanum z-99">
-      <div className="flex justify-center items-center bg-[#222229] h-full">
-        <div className="flex items-center justify-center w-full">
-          <Logo className="h-[34px]" />
-        </div>
+      <div className="relative flex justify-center items-center bg-[#222229] w-full h-full">
+        <Logo className="h-[34px]" />
         <button
           onClick={() => {
             setIsOpen((prev) => !prev);
           }}
-          className="w-[56px] h-[56px] flex items-center justify-center cursor-pointer"
+          className="absolute right-0 top-0 w-[56px] h-[56px] flex items-center justify-center cursor-pointer"
         >
           <EllipsesIcon className="w-7" fill="#fff" fillOpacity={0.7} />
         </button>
       </div>
       <div
         ref={menuRef}
-        className={`sticky top-0 overflow-x-hidden z-[99] bg-white w-[375px] h-screen transform ${
+        className={`absolute top-0 overflow-x-hidden z-[99] bg-white w-[375px] h-screen transform ${
           isOpen ? "translate-x-[calc(100vw-375px)]" : "translate-x-[100vw]"
         } duration-300 ease-in-out`}
       >

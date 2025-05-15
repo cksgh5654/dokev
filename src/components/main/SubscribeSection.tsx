@@ -42,7 +42,7 @@ const getDaysInMonth = (month: number, year: number): number => {
 };
 
 const SubscribeSection = () => {
-  const { isDesktop, isTablet } = useDevice();
+  const { isDesktop, isTablet, isMobile } = useDevice();
 
   const { toast } = useToast();
 
@@ -241,7 +241,7 @@ const SubscribeSection = () => {
   };
 
   return (
-    <div className="relative flex justify-end pt-32">
+    <div className="relative flex justify-end pt-16 md:pt-32">
       {(isDesktop || isTablet) && (
         <img
           className="w-[30vw] max-w-[400px] absolute top-0 left-[4vw] animate-[move_4s_ease-in-out_infinite_alternate] z-10"
@@ -250,22 +250,22 @@ const SubscribeSection = () => {
         />
       )}
 
-      <div className="bg-[#f4235c] text-white flex gap-8 w-full md:w-[70vw] items-center justify-center lg:justify-start lg:rounded-tl-3xl py-[128px]">
+      <div className="bg-[#f4235c] text-white flex gap-8 w-full md:w-[70vw] items-center justify-center lg:justify-start lg:rounded-tl-3xl py-16 md:py-32">
         <div className="flex flex-col gap-8 w-full px-4 lg:px-16">
           <section className="flex flex-col gap-8">
-            <div className="flex flex-col gap-2 pb-2">
-              <p className="text-2xl text-amber-200 font-semibold">
+            <div className="flex flex-col gap-2 md:pb-2">
+              <p className="text-lg md:text-2xl text-amber-200 font-semibold">
                 세상을 흔들어!
               </p>
-              <h1 className="text-5xl font-bold leading-15">
+              <h1 className="text-3xl md:text-5xl font-bold leading-15">
                 <span className="flex items-center gap-2 text-nowrap">
-                  <Logo className="inline h-20" />
+                  <Logo className="inline h-12 md:h-20" />
                   에서 무슨 일이
                 </span>
                 벌어지는지 확인하세요!
               </h1>
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col text-sm md:text-base">
               <div className="flex flex-col gap-2">
                 <label htmlFor="email">이메일</label>
                 <input
@@ -454,8 +454,8 @@ const SubscribeSection = () => {
                   className="appearance-none w-5 h-5 border-2 border-white rounded-md cursor-pointer relative checked:bg-white checked:after:content-['✔'] checked:after:absolute checked:after:top-1/2 checked:after:left-1/2 checked:after:transform checked:after:-translate-x-1/2 checked:after:-translate-y-1/2 checked:after:text-[#f4235c]"
                 />
                 <label htmlFor="marketing" className="flex gap-2 text-sm">
-                  DokeV 관련 새소식, 공지사항, 이벤트 등 관련 뉴스레터를
-                  수신하는 것에 동의합니다.
+                  DokeV 관련 새소식, 공지사항, 이벤트 등 {isMobile && <br />}
+                  관련 뉴스레터를 수신하는 것에 동의합니다.
                 </label>
               </div>
             </div>

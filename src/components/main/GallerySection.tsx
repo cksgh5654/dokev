@@ -8,7 +8,7 @@ import spark from "../../assets/images/gallery-section-img/img_radio_spark.png";
 import useDevice from "../../hooks/useDevice";
 
 const GallerySection = () => {
-  const { isDesktop, isTablet } = useDevice();
+  const { isDesktop, isTablet, isMobile } = useDevice();
   const [bigGalleryIndex, setBigGalleryIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -20,7 +20,7 @@ const GallerySection = () => {
     setIsOpen(false);
   };
   return (
-    <section className="pt-[128px]">
+    <section className="pt-16 md:pt-32">
       <div className="w-screen">
         <CarouselInfinite className="relative pb-[128px]">
           {(isDesktop || isTablet) && (
@@ -495,7 +495,11 @@ const GallerySection = () => {
                   onClick={handlePrev}
                   disabled={isTransitioning}
                 >
-                  <ChevronIcon height="60px" color="#fff" thickness="6" />
+                  <ChevronIcon
+                    height={isMobile ? "30px" : "60px"}
+                    color="#fff"
+                    thickness="6"
+                  />
                 </button>
 
                 <button
@@ -504,7 +508,7 @@ const GallerySection = () => {
                   disabled={isTransitioning}
                 >
                   <ChevronIcon
-                    height="60px"
+                    height={isMobile ? "30px" : "60px"}
                     color="#fff"
                     thickness="6"
                     className="rotate-180"
@@ -565,7 +569,11 @@ const GallerySection = () => {
                     onClick={handlePrev}
                     disabled={isTransitioning}
                   >
-                    <ChevronIcon height="60px" color="#fff" thickness="6" />
+                    <ChevronIcon
+                      height={isMobile ? "30px" : "60px"}
+                      color="#fff"
+                      thickness="6"
+                    />
                   </button>
 
                   <button
@@ -574,7 +582,7 @@ const GallerySection = () => {
                     disabled={isTransitioning}
                   >
                     <ChevronIcon
-                      height="60px"
+                      height={isMobile ? "30px" : "60px"}
                       color="#fff"
                       thickness="6"
                       className="rotate-180"

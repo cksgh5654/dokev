@@ -130,7 +130,7 @@ const VideoSection = () => {
         className="w-[200vw] flex gap-8 items-center sticky top-0 h-[100vh] overflow-hidden px-4"
       >
         <div className="w-screen flex justify-center">
-          <figure className="relative w-full md:max-w-[1440px] bg-[#0098ff] h-[80vh] md:h-[820px] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
+          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] bg-[#0098ff] h-[80vh] md:h-[820px] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
             <button
               popoverTarget="mv-popover"
               className="relative rounded-2xl overflow-hidden cursor-pointer group"
@@ -143,22 +143,28 @@ const VideoSection = () => {
               />
               <PlayButtonIcon className="absolute w-20 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] opacity-80 group-hover:opacity-100 duration-300 ease-in-out" />
             </button>
-            <figcaption className="flex flex-col gap-4 text-white">
-              <img
-                src={mvLogo}
-                alt="musicvideoLogo"
-                className="w-[259px] pb-4"
-                onDragStart={(e) => e.preventDefault()}
-              />
-              <h1 className="text-5xl font-bold">스페셜 퍼포먼스</h1>
-              <p className="text-lg">
+            <figcaption className="flex flex-col gap-2 md:gap-4 text-white">
+              <div className="flex justify-center md:justify-start items-center">
+                <img
+                  src={mvLogo}
+                  alt="musicvideoLogo"
+                  className="w-[180px] md:w-[259px] md:pb-4"
+                  onDragStart={(e) => e.preventDefault()}
+                />
+              </div>
+              <h1 className="text-3xl md:text-5xl font-bold text-center">
+                스페셜 퍼포먼스
+              </h1>
+              <p className="text-sm md:text-lg text-center">
                 시선을 사로잡는 비주얼과 재미가 가득한
                 {(isDesktop || isTablet) && <br />} 도깨비 ROCKSTAR 공식 댄스
                 MV! 함께 춤춰볼까요?
               </p>
               <div className="flex flex-col gap-3 mt-4 pb-4">
-                <h4 className="text-[#ffee93] text-2xl font-light">CREDITS</h4>
-                <ul className="text-[#aed9fc] text-sm flex flex-col gap-1 list-disc pl-3">
+                <h4 className="text-[#ffee93] text-lg md:text-2xl font-light">
+                  CREDITS
+                </h4>
+                <ul className="text-[#aed9fc] text-xs md:text-sm flex flex-col gap-1 list-disc pl-3">
                   <li>EXECUTIVE PRODUCER: PEARL ABYSS</li>
                   <li>MUSIC PRODUCER: 별들의전쟁 * (GALACTIKA *)</li>
                   <li>MIXED BY TAK(NEWTYPE)</li>
@@ -166,7 +172,7 @@ const VideoSection = () => {
                   <li>VOCALS BY LUENA</li>
                 </ul>
               </div>
-              <div className="flex gap-2 w-full p-4 bg-black/15 rounded-full">
+              <div className="flex gap-2 w-full md:p-4 md:bg-black/15 rounded-full">
                 <a
                   download="ROCKSTAR.mp3"
                   href={rockstar}
@@ -218,7 +224,7 @@ const VideoSection = () => {
           </figure>
         </div>
         <div className="w-screen flex justify-center">
-          <figure className="relative w-full md:max-w-[1440px] h-[80vh] md:h-[820px] bg-[#ff004f] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
+          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] h-[80vh] md:h-[820px] bg-[#ff004f] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
             <button
               popoverTarget="trailer-popover"
               className="relative rounded-2xl overflow-hidden group cursor-pointer"
@@ -233,20 +239,24 @@ const VideoSection = () => {
                 className="absolute w-20 top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] opacity-80 group-hover:opacity-100 duration-300 ease-in-out"
               />
             </button>
-            <figcaption className="flex flex-col gap-4 text-white">
-              <img
-                src={trailerLogo}
-                alt="musicvideoLogo"
-                className="w-[259px] pb-4"
-              />
-              <div className="flex flex-col gap-2 pb-2">
-                <p className="text-2xl text-amber-200 font-semibold">
+            <figcaption className="flex flex-col gap-2 md:gap-4 text-white">
+              <div className="flex justify-center md:justify-start items-center">
+                <img
+                  src={trailerLogo}
+                  alt="musicvideoLogo"
+                  className="w-[180px] md:w-[259px] md:pb-4"
+                />
+              </div>
+              <div className="flex flex-col md:gap-2 pb-2 text-center">
+                <p className="text-lg md:text-2xl text-amber-200 font-semibold">
                   우리와 함께 살아가고 있던 존재와
                 </p>
-                <h1 className="text-5xl font-bold">처음으로 마주하다</h1>
+                <h1 className="text-3xl md:text-5xl font-bold">
+                  처음으로 마주하다
+                </h1>
               </div>
-              <div className="flex flex-col gap-2 pb-8">
-                <p className="text-lg text-white/70">
+              <div className="flex flex-col gap-2 pb-8 text-sm md:text-lg text-center md:text-start text-white/70">
+                <p>
                   독특한 세계관, 모두가 공감할 이야기를 담은
                   <br />
                   도깨비 수집
@@ -255,12 +265,12 @@ const VideoSection = () => {
                   </em>
                   . <br />
                 </p>
-                <p className="text-lg text-white/70">
+                <p>
                   사람들의 꿈에서 힘을 얻고
                   <br />
                   함께 성장하며 응원하는 도깨비들을 찾고,
                 </p>
-                <p className="text-lg text-white/70">
+                <p>
                   <em className="text-white">
                     그들과 함께 새로운 모험을 떠나보세요!
                   </em>
@@ -271,7 +281,7 @@ const VideoSection = () => {
                   href="https://x.com/intent/post?url=https%3A%2F%2Fyoutu.be%2FS7Xlr_EQysA&text=%EB%8F%84%EA%B9%A8%EB%B9%84(DokeV)%20-%20%EC%9B%94%EB%93%9C%20%ED%94%84%EB%A6%AC%EB%AF%B8%EC%96%B4%20%EA%B2%8C%EC%9E%84%ED%94%8C%EB%A0%88%EC%9D%B4%20%ED%8A%B8%EB%A0%88%EC%9D%BC%EB%9F%AC&via=YouTube&related=YouTube%2CYouTubeTrends%2CYTCreators"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex justify-center items-center gap-2 w-[50%] text-nowrap rounded-full bg-[#2e3234] text-white px-8 py-3 cursor-pointer hover:bg-black duration-300 ease-in-out"
+                  className="flex justify-center items-center gap-1 md:gap-2 w-[50%] text-nowrap rounded-full bg-[#2e3234] text-white px-2 py-3 cursor-pointer hover:bg-black duration-300 ease-in-out text-sm md:text-base"
                 >
                   X 공유하기
                   <XIcon className="w-5" />
@@ -280,7 +290,7 @@ const VideoSection = () => {
                   href="https://www.facebook.com/dialog/share?app_id=87741124305&href=https%3A//www.youtube.com/watch%3Fv%3DS7Xlr_EQysA&display=popup"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex justify-center items-center gap-2 w-[50%] text-nowrap rounded-full bg-[#3781ff] text-white px-8 py-3 cursor-pointer hover:bg-[#176bff] duration-300 ease-in-out"
+                  className="flex justify-center items-center gap-1 md:gap-2 w-[50%] text-nowrap rounded-full bg-[#3781ff] text-white px-2 py-3 cursor-pointer hover:bg-[#176bff] duration-300 ease-in-out text-sm md:text-base"
                 >
                   페이스북 공유하기
                   <FacebookIcon className="w-18" />

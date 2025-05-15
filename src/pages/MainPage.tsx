@@ -83,7 +83,7 @@ const MainPage = () => {
         <MainSection />
         <div
           ref={containerRef}
-          className="bg-[url('/src/assets/images/bg_vertical.jpg')] pt-32 bg-no-repeat"
+          className="bg-[url('/src/assets/images/bg_vertical.jpg')] pt-16 md:pt-32 bg-no-repeat"
           style={{
             backgroundPosition: "center 100%",
           }}
