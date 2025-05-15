@@ -130,7 +130,7 @@ const VideoSection = () => {
         className="w-[200vw] flex gap-8 items-center sticky top-0 h-[100vh] overflow-hidden px-4"
       >
         <div className="w-screen flex justify-center">
-          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] bg-[#0098ff] h-[80vh] md:h-[820px] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
+          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] bg-[#ff004f] h-[80vh] md:h-[820px] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
             <button
               popoverTarget="mv-popover"
               className="relative rounded-2xl overflow-hidden cursor-pointer group"
@@ -176,7 +176,7 @@ const VideoSection = () => {
                 <a
                   download="ROCKSTAR.mp3"
                   href={rockstar}
-                  className="w-[50%] flex gap-2 justify-center items-center rounded-full bg-[#ff4775] text-white py-3 cursor-pointer hover:bg-[#ff004f] duration-300 ease-in-out"
+                  className="w-[50%] flex gap-2 justify-center items-center rounded-full bg-[#1aa3ff] text-white py-3 cursor-pointer hover:bg-[#0099ff] duration-300 ease-in-out"
                 >
                   Original
                   <DownloadIcon className="w-6" fill="white" />
@@ -224,7 +224,7 @@ const VideoSection = () => {
           </figure>
         </div>
         <div className="w-screen flex justify-center">
-          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] h-[80vh] md:h-[820px] bg-[#ff004f] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
+          <figure className="relative w-[calc(100vw-32px)] md:max-w-[1440px] h-[80vh] md:h-[820px] bg-[#0098ff] flex flex-col md:flex-row justify-center items-center py-[32px] px-[5vw] gap-8 rounded-br-3xl rounded-tl-3xl">
             <button
               popoverTarget="trailer-popover"
               className="relative rounded-2xl overflow-hidden group cursor-pointer"

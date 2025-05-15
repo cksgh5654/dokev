@@ -35,6 +35,7 @@ const sns = [
 const MainPage = () => {
   const { isDesktop } = useDevice();
   const containerRef = useRef<HTMLDivElement>(null);
+  const subscribeRef = useRef<HTMLDivElement>(null);
 
   const animate = () => {
     requestAnimationFrame(() => {
@@ -49,6 +50,12 @@ const MainPage = () => {
       );
       container.style.backgroundPosition = `center ${progress * 100}%`;
     });
+  };
+
+  const scrollToSubscribe = () => {
+    if (subscribeRef.current) {
+      subscribeRef.current.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   useEffect(() => {
@@ -80,7 +87,7 @@ const MainPage = () => {
       )}
 
       <main className="contain-paint">
-        <MainSection />
+        <MainSection scrollToSubscribe={scrollToSubscribe} />
         <div
           ref={containerRef}
           className="bg-[url('/src/assets/images/bg_vertical.jpg')] pt-16 md:pt-32 bg-no-repeat"
@@ -90,7 +97,9 @@ const MainPage = () => {
         >
           <VideoSection />
           <GallerySection />
-          <SubscribeSection />
+          <div ref={subscribeRef}>
+            <SubscribeSection />
+          </div>
         </div>
       </main>
     </>
