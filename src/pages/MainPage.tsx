@@ -33,7 +33,7 @@ const sns = [
 ];
 
 const MainPage = () => {
-  const { isDesktop, isTablet } = useDevice();
+  const { isDesktop } = useDevice();
   const containerRef = useRef<HTMLDivElement>(null);
 
   const animate = () => {
@@ -63,7 +63,7 @@ const MainPage = () => {
 
   return (
     <>
-      {(isDesktop || isTablet) && (
+      {isDesktop && (
         <nav className="fixed top-[88px] right-0 flex justify-end gap-4 h-[48px] pr-8 z-100">
           {sns.map(({ name, link, icon: Icon }) => (
             <a
