@@ -64,6 +64,18 @@
 
 ---
 
+### 네번째 섹션: 구독 섹션
+
+#### 문제
+
+기본 select 태그를 사용하여 년도를 밑으로 내리면 박스가 위로 올라가는 등의 스타일링에 제한이 있었습니다.
+alert를 사용하여 스타일링에 제한이 있었습니다.
+
+#### 해결 방식
+
+- **커스텀 컴포넌트 사용**: select를 자체 제작한 [Select](https://github.com/cksgh5654/react-ui-kit/tree/main/src/components/Select) 을 사용하여 스타일링을 쉽게 할 수 있게 하여 박스가 위로 올라가는 현상을 제거 했습니다.
+- **커스텀 컴포넌트 사용**: alert대신 자체 제작한 [Toast](https://github.com/cksgh5654/react-ui-kit/tree/main/src/components/Toast) 을 사용하여 스타일링을 쉽게 할 수 있게 하였습니다.
+
 ## 📌 링크
 
 - **WebSite**: [dokev](https://dokev.chanhoportfolio.com)
