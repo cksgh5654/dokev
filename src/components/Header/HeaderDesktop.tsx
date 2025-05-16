@@ -89,7 +89,7 @@ const HeaderDesktop = () => {
     if (!scrollRef.current) return false;
     const scrollEnd =
       scrollRef.current.scrollWidth - scrollRef.current.clientWidth;
-    return scrollEnd === Math.round(scrollRef.current.scrollLeft);
+    return Math.abs(scrollEnd - scrollRef.current.scrollLeft) < 1;
   };
 
   useEffect(() => {
