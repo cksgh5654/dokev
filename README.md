@@ -1,50 +1,81 @@
-# React + TypeScript + Vite
+# dokev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 기술 스택
 
-Currently, two official plugins are available:
+### Frontend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React, TypeScript, TailwindCSS
 
-## Expanding the ESLint configuration
+## 📌 구현 기능
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### 헤더
 
-- Configure the top-level `parserOptions` property like this:
+#### 문제
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+다음 게임으로 넘기기 위한 방법이 양쪽에 위치하는 버튼으로 하나씩 넘기는 선택지만 있어서 추후에 게임이 많이 추가될 경우 ui 변경이 필요할 것 같았습니다.
+5개의 게임이 무한스크롤로 돌아가고 있어서 게임이 총 몇개인지 찾던 게임이 어디에 위치하고 있었는지 찾기 다소 힘든 부분이 있었습니다.
+게임로고 이미지가 142kb 크기의 한개의 이미지로 사용하고 있었습니다. 게임이 추가될때 이미지를 교체해야되기때문에 유지보수성에서 불리하다고 생각했습니다.
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+#### 해결 방식
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- **횡방향 스크롤 지원**: overflow-x scroll로 노트북 트랙패드나 횡방향 스크롤이 가능한 마우스로 횡방향 스크롤이 가능하게 하여 여러개씩 넘기기가 가능하게 하였습니다.
+- **캐러샐 ux변경**: 무한스크롤을 제거하고 useRef를 사용하여 current.scrollLeft, current.scrollWidth, current.clientWidth로 처음과 끝을 계산하여 넘기기 버튼이 사라지게 하여 시각적으로 처음과 끝을 알 수 있게 변경하였습니다.
+- **게임로고 이미지 분리**: 142kb였던 로고 이미지를 총 합 38.67KB의 5개의 로고로 분리하여 72.77%의 크기를 감소시켰고 새 게임을 추가할 때 이미지만 추가하면 되서 유지보수성을 높혔습니다.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+---
+
+### 첫번째 섹션
+
+#### 문제
+
+뒤에 보이는 배경이미지를 가리지 않으려고 로고와 버튼사이를 띄워 놓은것으로 판단되는데 뒷배경이 시선을 잡아주는 내용의 이미지가 아니어서 오히려 시선이 분산된다고 생각이 되었습니다
+
+#### 해결 방식
+
+- **로고와 버튼 가운데 정렬**: 로고와 버튼을 모아 가운데 정렬하여 시선을 집중시켰습니다. 또한 로고를 백터형태의 svg로 제작하고 컴포넌트화하여 재사용성을 높혔고 확대되어도 깨지지 않게 하였습니다.
+
+---
+
+### 두번째 섹션: 트레일러, 뮤직비디오 섹션
+
+#### 문제
+
+기존에 풀페이지 스크롤 형식으로 되어 있는데 이 섹션의 스크롤 하면 옆으로 넘어가는 방식과 겹쳐져 의도하지 않게 더 뒤로 넘어가는 등의 오작동이 잦았습니다.
+비디오 썸네일을 누르면 모달 형태로 비디오가 나오는데 x버튼을 눌러서 벗어나는 선택지만 있었습니다. 또 모달을 끄고 다시 들어가면 영상이 처음부터 나오는 현상이 있었습니다.
+버튼글자가 흰색인데 마우스 호버하면 버튼색이 밝아지고 색도 흐려지면서 오히려 버튼글자가 흐려집니다.
+
+#### 해결 방식
+
+- **페이지 스크롤 방식 변경**: 풀페이지 스크롤 형식을 하지않고 해당 섹션엔 getBoundingClientRect로 섹션 높이를 구하고 높이에 맞게 진행도를 설정하여 requestAnimationFrame을 사용하여 성능을 최적화 하며 스크롤에 따라 가로로 이동되게 하였습니다.
+- **바깥을 누르면 팝오버가 꺼지게 설정**: popover api로 팝오버를 구현하여 컨텐츠 밖을 클릭하면 사라지게 하였고 iframe으로 영상을 연결하여 useRef로 팝오버를 끄면 영상이 일시정지 되게하여 다시 누르면 정지된 부분이 유지되게 하였습니다.
+- **버튼 색상 변경으로 ui 개선**: 버튼을 누르면 색이 진해지게하여 하얀색 글씨가 더 잘보이게 색상을 수정하였습니다
+
+---
+
+### 세번째 섹션: 갤러리 섹션
+
+#### 문제
+
+데크스톱이나 타블렛에서는 캐러셀 페이지마다 5~6개의 이미지가 노출되지만 모바일에서 1개의 이미지만 노출되고 있었습니다.
+
+#### 해결 방식
+
+- **모바일 ui 수정**: 자체 제작한 [CarouselInfinite](https://github.com/cksgh5654/react-ui-kit/tree/main/src/components/CarouselInfinite) 을 사용하여 무한캐러샐을 구현하였고 css grid를 사용하여 모바일에서도 5~6개의 이미지가 보이도록 ui를 수정하였습니다.
+
+---
+
+## 📌 링크
+
+- **WebSite**: [dokev](https://dokev.chanhoportfolio.com)
+- **Reference WebSite**: [dokev](https://dokev.pearlabyss.com/ko/Main/Index)
+
+- **My Resume**: [My Resume](https://www.chanhoportfolio.com)
+
+## 📌 설치 및 실행 방법
+
+### 프론트엔드 실행
+
+```bash
+npm install
+npm run dev
 ```
