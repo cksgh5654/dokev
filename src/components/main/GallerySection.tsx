@@ -541,7 +541,7 @@ const GallerySection = () => {
         <Modal.Content fixed className="z-2 top-0 w-full px-4">
           <CarouselInfinite initialIndex={bigGalleryIndex}>
             <CarouselInfinite.ItemContainer>
-              <CarouselInfinite.ItemList className="items-center h-fit">
+              <CarouselInfinite.ItemList className="items-center h-fit gap-16">
                 {galleryBigData.map((item) => (
                   <CarouselInfinite.Item
                     key={item.index}
